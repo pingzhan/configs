@@ -5,3 +5,7 @@ alias.lg=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cg
 alias.dag=log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)%an <%ae>%C(reset) %C(magenta)%ar%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
 alias.llog=log --oneline @{upstream}..HEAD
 alias.llp=log -p @{upstream}..HEAD
+user.name=Ping Zhang
+user.email=arkbase@gmail.com
+core.editor=emacs
+push.default=simple
