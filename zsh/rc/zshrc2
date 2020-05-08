@@ -1,0 +1,34 @@
+# -*- shell-script -*-
+
+typeset -ga precmd_functions
+typeset -ga preexec_functions
+
+source $HOME/bin/rc/vcs_info
+
+######################### aliases ####################################
+#Don't alias grep until after sourcing the files above, could get bad version
+#of grep that doesn't understand --color
+alias grep='nocorrect grep --color=auto'
+
+######################### key bindings ###############################
+#set zsh key binding options
+bindkey -e	# Emacs is better than VI
+bindkey "^R" history-incremental-search-backward
+bindkey "^E" end-of-line
+bindkey "^A" beginning-of-line
+
+#pushes current command on command stack and gives blank line, after that line
+#runs command stack is popped
+bindkey "^T" push-line-or-edit
+
+# VI editing mode is a pain to use if you have to wait for <ESC> to register.
+# This times out multi-char key combos as fast as possible. (1/100th of a
+# second.)
+KEYTIMEOUT=1
+
+autoload zmv
+alias 'zcp=noglob zmv -W -C'
+alias 'zln=noglob zmv -W -L'
+alias 'zmv=noglob zmv -W -M'
+
+# End of lines added by compinstall
